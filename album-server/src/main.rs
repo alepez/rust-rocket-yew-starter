@@ -27,8 +27,6 @@ fn index() -> &'static str {
 }
 
 fn ignite() -> rocket::Rocket {
-    dotenv::dotenv().ok();
-
     rocket::ignite()
         .attach(AdHoc::on_attach("Static files", static_files))
         .mount("/", routes![index])
